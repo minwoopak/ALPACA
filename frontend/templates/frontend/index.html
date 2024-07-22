@@ -1,0 +1,23 @@
+{% extends "frontend/base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}" />
+    <!-- D3 Section -->
+    <div id="alpaca">
+        <aside id="menus"></aside>
+        <main id="analysisSection">
+            <div id="diff-metrics"></div>
+            <div id="analysis-diagrams">
+                <div id="panelOne"></div>
+                <div id="panelTwo"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- React Section -->
+    <footer id="clustering">
+        <div id="reactApp"></div>
+    </footer>
+
+    <script src="{% static "frontend/bundle.js" %}"></script> 
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends "frontend/base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/about.css" %}" />
+    <div id="readme" class="container">
+        <h3>ALPACA (A Location-wise Proteome/transcriptome Abundance Comparative Analyzer)</h3>
+        <p>
+            ALPACA (A Location-wise Proteome/transcriptome Abundance Comparative Analyzer) is a web-based visual data mining system for subcellular location-specific knowledge mining from multi-omics data.<br>
+            ALPACA allows researchers to visually compare transcriptomic and proteomic abundance of different cancer types in location-wise and biological function-specific fashion.<br>
+            From the transcriptomic and proteomic abundance data of cancers, location enrichment distributions are calculated. ALPACA visually presents the location enrichment distributions of different cancers in pathway(s)-specific manner so that researchers can easily perceive the discrepancies of the abundance enrichment in a biological context of interest.
+        </p>
+        <div class="img-container"><img id="workflow" class="figure" src="{% static "images/0.Workflow.png" %}"></div>
+
+        <h3>Step1. Data Selection</h3>
+        <div>Select the omics types and cancer types of interest to compare.</div>
+        <div>One can either compare:</div>
+        <ul>
+            <li>Proteomics of two different cancers</li>
+            <li>Transcriptomics of two different cancers</li>
+            <li>Transcriptomics and proteomics of a single cancer type</li>
+        </ul>
+        <div class="img-container"><img id="1.data-selection" class="figure" src="{% static "images/1.data-selection.png" %}" alt=""></div>
+
+        <h3>Step2. Pathway Selection</h3>
+        <p>Once the datasets(cancer pair) are selected, the location enrichment (normalized average abundance of genes or proteins) are shown on the cell diagram via color variations.</p>
+        <p>The user can select one or more pathways to add biological context to the analysis.<br>
+           Pathways can be sorted by the degree of discrepancies between the two cancers.<br>
+           Once a pathway(s)(or a category of pathways) is/are selected, data is then filtered to include only the proteins that are related to the selected pathway(s).<br>
+        </p>
+        <div class="img-container"><img id="2.pathway-selection" class="figure" src="{% static "images/2.pathway-selection.png" %}" alt=""></div>
+
+        <h3>Raw &#38; Reset Button</h3>
+        <p>Clicking the ‘Raw’ button would show the location enrichment values without normalization (average abundance values from the original gene expression or protein quantification data are shown)</p>
+        <p>‘Reset Parameters’ button would unselect the datasets and pathways and return to the default parameter settings view.</p>
+        <div class="img-container"><img id="raw-and-reset-buttons" class="figure" src="{% static "images/raw-and-reset-buttons.png" %}" alt=""></div>
+
+        <h3>Step3. Presentation of Location-specific Heatmaps Observe location enrichment distribution discrepancies between the two cancers.P</h3>
+        <p>The discrepancies of the two cancers are quantified by the Mean Squared Error (MSE) and kullback leibler divergence (KLD).</p>
+        <p>Note that pathways list can be sorted by MSE or KLD in descending order.</p>
+        <p>For better perception of the location distribution information, the same information is also presented by the barcharts right below the cell diagrams.</p>
+        <div class="img-container"><img id="3.cell-diagram" class="figure" src="{% static "images/3.cell-diagram.png" %}" alt=""></div>
+
+        <h3>Step4. Identification of Potential Key Proteins</h3>
+        <p>Examine proteins that may cause the similarity or dissimilarity of the location enrichments.</p>
+        <p>Click on a location of the cell diagram so that only the proteins localized to that location is shown in the table.</p>
+        <div class="img-container"><img id="protein-table" class="figure" src="{% static "images/protein-table.png" %}" alt=""></div>
+    </div>
+{% endblock content %}
